@@ -1,3 +1,13 @@
+# Dossier de compilation Zephyr
 build/
+
+# Fichiers binaires générés
 *.bin
 *.elf
+*.hex
+*.map
+
+# Éditeurs / système
+.vscode/
+.DS_Store
+Thumbs.db
