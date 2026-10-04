@@ -1,0 +1,24 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+
+	mpu6050: mpu6050@68 {
+		compatible = "invensense,mpu6050";
+		reg = <0x68>;          /* 0x69 si la broche AD0 est à 3V3 */
+		status = "okay";
+	};
+};
+
+&spi3 {
+	status = "okay";
+
+	nokia5110: lcd@0 {
+		compatible = "nokia,pcd8544-lcd";
+		reg = <0>;
+		spi-max-frequency = <4000000>;   /* PCD8544 : 4 MHz max */
+		dc-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+	};
+};

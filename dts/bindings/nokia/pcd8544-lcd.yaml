@@ -1,0 +1,16 @@
+description: Ecran Nokia 5110 (controleur PCD8544), driver dans l'application
+
+compatible: "nokia,pcd8544-lcd"
+
+include: spi-device.yaml
+
+properties:
+  dc-gpios:
+    type: phandle-array
+    required: true
+    description: Broche Data/Command (D/C)
+
+  reset-gpios:
+    type: phandle-array
+    required: true
+    description: Broche RST (active a l'etat bas)
